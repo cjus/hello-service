@@ -1,0 +1,13 @@
+{
+  "environment": "development",
+  "hydra": {
+    "serviceName": "hello-service",
+    "serviceIP": "",
+    "servicePort": 5000,
+    "serviceType": "hello",
+    "serviceDescription": "says hello",
+    "redis": {
+      "url": "redis://127.0.0.1:6379/15"
+    }
+  }
+}

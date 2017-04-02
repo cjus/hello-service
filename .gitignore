@@ -3,5 +3,4 @@
 *.pem
 *.rsa
 node_modules
-config/config.json
 */public
