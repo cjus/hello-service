@@ -106,7 +106,7 @@ $ curl localhost:5000/v1/hello/test
 {"statusCode":200,"statusMessage":"OK","statusDescription":"Request succeeded without error","result":{"msg":"hello from hello-service - da3a2e99becc03abed949080d8fa3185"}}
 ```
 
-Yes, another method is to run the container with a mapped volume. In the example, the local project folder `~/dev/hello-service/config` maps over the container's built-in `/usr/src/app/config` folder.  So the running container will use the config file you specified in your project folder. That allows you to leave the config.json file in the container and override it with one outside the container.
+Yet, another method is to run the container with a mapped volume. In the example, the local project folder `~/dev/hello-service/config` maps over the container's built-in `/usr/src/app/config` folder.  So the running container will use the config file you specified in your project folder. That allows you to leave the config.json file in the container and override it with one outside the container.
 
 ```shell
 $ docker run -it -d -p 5000:5000 \
