@@ -7,9 +7,7 @@
     "serviceType": "hello",
     "serviceDescription": "says hello",
     "redis": {
-      "url": "127.0.0.1",
-      "port": 6379,
-      "db": 15
+      "url": "redis://127.0.0.1:6379/15"
     }
   }
 }
