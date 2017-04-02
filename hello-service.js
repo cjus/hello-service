@@ -16,15 +16,15 @@ let config = require('fwsp-config');
 config.init('./config/config.json')
   .then(() => {
     config.version = version;
-      hydraExpress.init(config.getObject(), version, () => {
-        hydraExpress.registerRoutes({
-          '/v1/hello': require('./routes/hello-v1-routes')
-        });
+    hydraExpress.init(config.getObject(), version, () => {
+      hydraExpress.registerRoutes({
+        '/v1/hello': require('./routes/hello-v1-routes')
+      });
+    })
+      .then((serviceInfo) => {
+        console.log('serviceInfo', serviceInfo);
       })
-        .then((serviceInfo) => {
-          console.log('serviceInfo', serviceInfo);
-        })
-        .catch((err) => {
-          console.log('err', err);
-        });
+      .catch((err) => {
+        console.log('err', err);
+      });
   });
