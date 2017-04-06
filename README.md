@@ -19,6 +19,18 @@ Returns:
 }
 ```
 
+This project also demonstrates how to server a website from a Hydra-enabled service.
+
+```
+http://localhost:5000/hello-service
+```
+
+You can even access the website through Hydra-router. Assuming a Hydra-router instance is listening on 5353 and the hello service also runing:
+
+```
+http://localhost:5353/hello-service
+```
+
 ## Configuration
 
 This service expects a local instance of Redis. To change the location of Redis update the `config/config.json` file:
