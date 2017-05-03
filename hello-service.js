@@ -5,26 +5,22 @@
 */
 'use strict';
 
-const version = require('./package.json').version;
 const hydraExpress = require('hydra-express');
-
-let config = require('fwsp-config');
+const hydra = hydraExpress.getHydra();
 
 /**
 * Load configuration file and initialize hydraExpress app.
 */
-config.init('./config/config.json')
-  .then(() => {
-    config.version = version;
-    hydraExpress.init(config.getObject(), version, () => {
-      hydraExpress.registerRoutes({
-        '/v1/hello': require('./routes/hello-v1-routes')
-      });
-    })
-      .then((serviceInfo) => {
-        console.log('serviceInfo', serviceInfo);
-      })
-      .catch((err) => {
-        console.log('err', err);
-      });
+hydraExpress.init(`${__dirname}/config/config.json`, () => {
+  hydraExpress.registerRoutes({
+    '/v1/hello': require('./routes/hello-v1-routes')
+  });
+})
+  .then((serviceInfo) => {
+    let logEntry = `Started ${hydra.getServiceName()} (v.${hydra.getInstanceVersion()})`;
+    console.log(logEntry);
+    console.log(serviceInfo);
+  })
+  .catch((err) => {
+    console.log('err', err);
   });
