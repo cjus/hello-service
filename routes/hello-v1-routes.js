@@ -29,6 +29,14 @@ api.get('/test', (req, res) => {
   });
 });
 
+api.get('/test2', (req, res) => {
+  serverResponse.sendOk(res, {
+    result: {
+      msg: `hello from ${hydra.getServiceName()} - ${hydra.getInstanceID()}`
+    }
+  });
+});
+
 api.get('/html', (req, res) => {
   res.writeHead(ServerResponse.HTTP_OK, {
     'Content-Type': 'text/html'
@@ -48,6 +56,16 @@ api.get('/image', (req, res) => {
   segments.pop();
   let path = segments.join('/');
   res.sendFile(`${path}/hydra.png`);
+});
+
+api.post('/post', (req, res) => {
+  res.json({
+    result: {
+      msg: 'Post recieved',
+      a: req.body.a,
+      b: req.body.b
+    }
+  });
 });
 
 module.exports = api;

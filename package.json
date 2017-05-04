@@ -1,6 +1,6 @@
 {
   "name": "hello-service",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "scripts": {
     "start": "node hello-service.js",
@@ -11,7 +11,7 @@
     "node": ">=6.2.1"
   },
   "dependencies": {
-    "hydra-express": "1.3.0"
+    "hydra-express": "1.3.3"
   },
   "devDependencies": {
     "chai": "3.5.0",
