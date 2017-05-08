@@ -68,4 +68,16 @@ api.post('/post', (req, res) => {
   });
 });
 
+api.get('/slow', (req, res) => {
+  setTimeout(() => {
+    res.json({
+      result: {
+        msg: 'Post recieved',
+        a: req.body.a,
+        b: req.body.b
+      }
+    });
+  }, 30000);
+});
+
 module.exports = api;
